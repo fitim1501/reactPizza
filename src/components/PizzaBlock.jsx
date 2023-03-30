@@ -4,7 +4,7 @@ function PizzaBlock({title, price, imageUrl,sizes,types}) {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [activeIndexType, setActiveIndexType] = React.useState(0);
   const typeNames = ['тонкое', 'традиционное'];
-  
+
   return(
   <div className="pizza-block">
   <img
@@ -17,14 +17,14 @@ function PizzaBlock({title, price, imageUrl,sizes,types}) {
     <ul>
       {
         types.map((values, index)=>{
-          return <li onClick={() => {setActiveIndexType(index);}}  className={activeIndexType == index? "active": ''}>{typeNames[values]}</li>
+          return <li key={index} onClick={() => {setActiveIndexType(index);}}  className={activeIndexType == index? "active": ''}>{typeNames[values]}</li>
         })
       }
     </ul>
     <ul>
       {
         sizes.map((value, index)=>{
-          return <li onClick={() => {setActiveIndex(index);}} className={activeIndex == index? "active": '' }>{value} см.</li>;
+          return <li key={index} onClick={() => {setActiveIndex(index);}} className={activeIndex == index? "active": '' }>{value} см.</li>;
         })
       }
     </ul>
